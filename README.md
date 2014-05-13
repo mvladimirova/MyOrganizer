@@ -8,4 +8,3 @@ MyOrganizer
 - save the time when the event starts, duration, venue
 - different types of views: for the day, week, month or only the events that are saved
 - different types of events: birthday, meeting and etc.
-- 
