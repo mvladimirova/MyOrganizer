@@ -1,2 +1,2 @@
-MyCalendar
+MyOrganizer
 ==========
