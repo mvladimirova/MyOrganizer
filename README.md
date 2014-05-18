@@ -1,6 +1,10 @@
 MyOrganizer
 ==========
 
+<h1>About the application:</h1>
+This will be an organizer in which you can save events. It will have different types for searching
+and different views.
+
 <h2>Main Part(for next milesotne)</h2>
 - enter and save events to a file(DB in future)
 - when adding an event mark if it is onetime, dayly, monthly or an annual event
