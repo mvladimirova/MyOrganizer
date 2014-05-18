@@ -1,10 +1,21 @@
 MyOrganizer
 ==========
 
-- calendar application to save events
-- events can be only one-time, dayly, monthly and etc.
-- functionality to search for a certain event or just go throughout all the events
-- notifications for upcomming events: 3 days before the current event
-- save the time when the event starts, duration, venue
-- different types of views: for the day, week, month or only the events that are saved
-- different types of events: birthday, meeting and etc.
+<h2>Main Part(for next milesotne)</h2>
+- enter and save events to a file(DB in future)
+- when adding an event mark if it is onetime, dayly, monthly or an annual event
+- every event is a separate object:
+  * attributes: date, time, venue, name of the event
+- searching:
+  * by typing in the exact date and printing out all the events on this date by hours
+  * asking for all the events without asking for an exact one
+
+<h3>GUI:</h3>
+- notifications for upcoming events
+- possibility for differnt views:
+  * the whole week with hours
+  * only one day by hours
+  * only existing views
+- adding events(connection with the main part)
+
+
