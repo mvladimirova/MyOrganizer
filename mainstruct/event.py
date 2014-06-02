@@ -3,6 +3,7 @@ Event class that save the events
 """
 from datetime import datetime
 
+
 def dateToStr(date):
     return "{0}.{1}.{2}".format(date.day, date.month, date.year)
 
@@ -11,22 +12,23 @@ def timeToStr(time):
 
 
 class Dayly:
-"""
-class for event that are every day
-"""
+    """
+    class for event that are every day
+    """
     def __init__(self, start_date, step):
         startDate = datetime.strptime(start_date, '%d  %b %Y')
         self.start = startDate
         self.step = step
 
     def __str__(self):
-        return "every {0} days starting {1}".format(self.step, dateToStr(self.start))
-    
+        return "every {0} days starting {1}".format(self.step,
+                                                    dateToStr(self.start))
+
     def occursOnDate(self, date):
         Date = datetime.strptime(date, '%d %b %Y')
         return Date >= self.start
 
-daynames = ["monday","tuesday","wednesday","thursday",
+daynames = ["monday", "tuesday", "wednesday", "thursday",
             "friday", "saturday", "sunday"]
 
 class Weekly:
@@ -74,7 +76,7 @@ be saved only for that month
         else:
             return (Date.day == self.day) and (Date.month == self.month)
 
-
+#TODO: figure out how to enter the type and the create an object of that type
 class Event:
     def __init__(self, date, venue, hour, name, type_of_event):
         self.date = date
@@ -87,6 +89,3 @@ class Event:
                                                                self.venue,
                                                                self.date,
                                                                self.hour)
-
-
-
