@@ -2,6 +2,14 @@
 Event class that save the events
 """
 
+import datetime
+
+def dateToStr(date):
+    return "{0}.{1},{2}".format(date.day, date.month, date.year)
+
+def timeToStr(time):
+    return "{0}:{1}".format(time.hour, time.minute)
+
 
 class Event:
     def __init__(self, date, venue, hour, name):
