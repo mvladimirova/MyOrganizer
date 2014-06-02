@@ -32,10 +32,11 @@ class Weekly:
         self.days = set(days)
 
     def __str__(self):
-        return "every" + ", ".join((daynames[day] for day in self.days))
+        return "every " + ", ".join((daynames[day] for day in self.days))
 
     def occursOndate(self, date):
-        return date.weekday() in self.days
+        Date = datetime.strptime(date, '%d %b %Y')
+        return Date.weekday() in self.days
 
 
 class Event:
