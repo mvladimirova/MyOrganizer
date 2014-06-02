@@ -11,6 +11,9 @@ def timeToStr(time):
 
 
 class Dayly:
+"""
+class for event that are every day
+"""
     def __init__(self, start_date, step):
         startDate = datetime.strptime(start_date, '%d  %b %Y')
         self.start = startDate
@@ -27,7 +30,9 @@ daynames = ["monday","tuesday","wednesday","thursday",
             "friday", "saturday", "sunday"]
 
 class Weekly:
-
+"""
+class for weekly events
+"""
     def __init__(self, *days):
         self.days = set(days)
 
@@ -44,6 +49,13 @@ monthnames = ["january", "february", "march",
               "november", "december"]
 
 class Monthly:
+"""
+class for monthly events. if enter a month when creating the event it will
+be saved only for that month
+"""
+
+#TODO: check how to extract only the day of the month
+
     def __init__(self, date, month = None):
         occur_date = datetime.strptime(date, '%d')
         self.day = occur_date
@@ -64,7 +76,7 @@ class Monthly:
 
 
 class Event:
-    def __init__(self, date, venue, hour, name):
+    def __init__(self, date, venue, hour, name, type_of_event):
         self.date = date
         self.venue = venue
         self.hour = hour
