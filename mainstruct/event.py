@@ -38,6 +38,30 @@ class Weekly:
         Date = datetime.strptime(date, '%d %b %Y')
         return Date.weekday() in self.days
 
+monthnames = ["january", "february", "march",
+              "april", "may", "june", "july",
+              "august", "september", "october",
+              "november", "december"]
+
+class Monthly:
+    def __init__(self, date, month = None):
+        occur_date = datetime.strptime(date, '%d')
+        self.day = occur_date
+        self.month = month
+
+    def __str__(self):
+        if not self.month:
+            return "{0} of each month".format(self.day)
+        else:
+            return "{0} of each {1}".format(self.day, monthnames[self.month])
+
+    def occursOnDate(self, date):
+        Date = datetime.strptime(date, '%d %b %Y')
+        if not self.month:
+            return Date.day == self.day
+        else:
+            return (Date.day == self.day) and (Date.month == self.month)
+
 
 class Event:
     def __init__(self, date, venue, hour, name):
