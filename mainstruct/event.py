@@ -1,73 +1,28 @@
 """
 Event class that save the events
 """
-
-import datetime
+from datetime import datetime
 
 def dateToStr(date):
-    return "{0}.{1},{2}".format(date.day, date.month, date.year)
+    return "{0}.{1}.{2}".format(date.day, date.month, date.year)
 
 def timeToStr(time):
     return "{0}:{1}".format(time.hour, time.minute)
 
-class Occurrence:
-    def __init__(self, date, start = None, end = None):
-        if start and end:
-            self.start = datetime.datetime(
-                    date.year,
-                    date.mont,
-                    date.day,
-                    start.hour,
-                    srart.minute)
-            self.end = datetime.datetime(
-                    date.year,
-                    date.month,
-                    date.day,
-                    end.hour,
-                    end.minute)
-            self.all_day = False
-        else:
-            self.start = datetime.datetime(
-                    date.year,
-                    date.month,
-                    date.day,
-                    0,0)
-            self.end = datetime.datetime(
-                    date.year,
-                    date.month,
-                    date.day,
-                    23,59)
-            self.all_day = True
-        self.duration = self.end- self.start
-        self.date = date
-
-    @property
-    def year(self):
-        return self.date.year
-
-    @property
-    def month(self):
-        return self.date.month
-
-    @property
-    def day(self):
-        return self.date.day
-
-    @property
-    def hour(self):
-        return self.date.hour
-
-    @property
-    def minute(self):
-        return self.date.minute
 
 class Dayly:
     def __init__(self, start_date, step):
-        self.start = start_date.toordinal()
+        startDate = datetime.strptime(start_date, '%d  %b %Y')
+        self.start = startDate
         self.step = step
 
     def __str__(self):
-        return "every {0} days starting {1}".format(self.step, dateToStr(start_date))
+        return "every {0} days starting {1}".format(self.step, dateToStr(self.start))
+    
+    def occursOnDate(self, date):
+        Date = datetime.strptime(date, '%d %b %Y')
+        return Date >= self.start
+
 
 
 class Event:
