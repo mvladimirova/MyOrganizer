@@ -23,6 +23,19 @@ class Dayly:
         Date = datetime.strptime(date, '%d %b %Y')
         return Date >= self.start
 
+daynames = ["monday","tuesday","wednesday","thursday",
+            "friday", "saturday", "sunday"]
+
+class Weekly:
+
+    def __init__(self, *days):
+        self.days = set(days)
+
+    def __str__(self):
+        return "every" + ", ".join((daynames[day] for day in self.days))
+
+    def occursOndate(self, date):
+        return date.weekday() in self.days
 
 
 class Event:
