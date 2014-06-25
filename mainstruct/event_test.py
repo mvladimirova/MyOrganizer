@@ -49,15 +49,15 @@ class WeeklyEventTest(unittest.TestCase):
 
     def test_weekly_str(self):
         w = event.Weekly("FMI", "18:00", "python", 1)
-        self.assertEqual(str(w), "every tuesday")
-        w1 = event.Weekly("FMI", "18:00", "python", 0, 2)
+        self.assertEqual(str(w), "every monday")
+        w1 = event.Weekly("FMI", "18:00", "python", 1, 3)
         self.assertEqual(str(w1), "every monday, wednesday")
 
     def test_occurs_on_date(self):
         w = event.Weekly("FMI", "18:00", "python", 1)
-        self.assertEqual(w.occurs_on_date("30.6.2014"), False)
-        self.assertEqual(w.occurs_on_date("1.7.2014"), True)
-        w1 = event.Weekly("FMI", "18:00", "python", 0, 2)
+        self.assertEqual(w.occurs_on_date("30.6.2014"), True)
+        self.assertEqual(w.occurs_on_date("1.7.2014"), False)
+        w1 = event.Weekly("FMI", "18:00", "python", 1, 3)
         self.assertEqual(w1.occurs_on_date("29.6.2014"), False)
         self.assertEqual(w1.occurs_on_date("25.6.2014"), True)
         self.assertEqual(w1.occurs_on_date("30.6.2014"), True)

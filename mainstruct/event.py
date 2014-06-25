@@ -73,11 +73,11 @@ class Weekly:
         self.name = name
 
     def __str__(self):
-        return "every " + ", ".join((day_names[day] for day in self.days))
+        return "every " + ", ".join((day_names[day-1] for day in self.days))
 
     def occurs_on_date(self, date):
         Date = datetime.strptime(date, '%d.%m.%Y')
-        return Date.weekday() in self.days
+        return Date.isoweekday() in self.days
 
 month_names = ["january", "february", "march",
                "april", "may", "june", "july",
