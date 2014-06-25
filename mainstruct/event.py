@@ -13,6 +13,7 @@ def date_to_str(date):
 def time_to_str(time):
     return "{0}:{1}".format(time.hour, time.minute)
 
+
 class Event:
     """
     Class for one time events. Used as a base class for the other types
@@ -32,8 +33,10 @@ class Event:
         """
         return "{0} will be held at {1}, on {2} at {3}".format(self.name,
                                                                self.venue,
-                                                               date_to_str(self.date),
+                                                               date_to_str(
+                                                               self.date),
                                                                self.hour)
+
 
 class Dayly(Event):
     """
@@ -81,6 +84,7 @@ month_names = ["january", "february", "march",
                "august", "september", "october",
                "november", "december"]
 
+
 class Monthly:
     """
     Class for monthly event. If enter a month when creating the event
@@ -89,7 +93,7 @@ class Monthly:
     def __init__(self, day, name, month=None):
         self.day = day
         self.name = name
-        if(month != None):
+        if month is not None:
             self.month = month
         else:
             self.month = None
@@ -98,7 +102,8 @@ class Monthly:
         if not self.month:
             return "{0}-th of each month".format(self.day)
         else:
-            return "{0}-th of each {1}".format(self.day, month_names[self.month-1])
+            return "{0}-th of each {1}".format(self.day,
+                                               month_names[self.month-1])
 
     def occurs_on_date(self, date):
         Date = datetime.strptime(date, '%d.%m.%Y')
